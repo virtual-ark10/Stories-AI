@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    <% for(let story of stories) { %>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100 mb-3">
+                <img class="img-fluid card-img-top index-images" src="<%= story.image.url %>" alt="">
+
+                <div class="card-body px-4">
+                    <div class="card-title">
+                        <h3><%= story.title %></h3>
+                        <a href="/stories/<%= story._id %>" class="btn btn-primary"> View Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <% } %>
+</div>

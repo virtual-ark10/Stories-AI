@@ -1,0 +1,15 @@
+#edit-container {
+    height: 500px;
+    background: #fff;
+}
+
+.blog-title {
+    font-size: 2rem;
+    height: 4rem;
+}
+
+.index-images {
+    width: 100%;
+    height: 35vw;
+    object-fit: cover;
+}

@@ -1,0 +1,57 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    
+
+        <div class="col-8 offset-2">
+            <form action="/stories" method="post" class="validated-form" novalidate enctype="multipart/form-data">
+
+                <p class="text-center">Upload an image and add a little context, then let AI generate a heartfelt story.</p>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Your image: </label>
+                    <input class="form-control" type="file" id="image" name="image">
+
+                </div>
+
+                    <div>
+                    <label for="context" class="form-label">Context: </label>
+                    </div>
+
+                    <div>
+                        <textarea class="form-control" name="stories[description]" id="context" rows="10" cols="100%" ></textarea>
+                        <div class="invalid-feedback">
+                            Please provide context for the image
+                        </div>
+                    </div>
+
+                <div class="mb-3">
+                    <label for="tone" class="form-label">Tone: </label>
+                    <select class="form-select" aria-label="tone" id="tone" name="stories[tone]">
+                        <option selected>Select Tone</option>
+                        <option value="1">Romance</option>
+                        <option value="2">Hopeful</option>
+                        <option value="3">Nostalgic</option>
+                        <option value="4">Reflective</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label for="visibility" class="form-label">Visibility: </label>
+                    <select class="form-select" aria-label="visibility" id="visibility" name="stories[visibility]">
+                        <option value="public" selected>Public</option>
+                        <option value="private">Private</option>
+                    </select>
+                </div>
+
+
+                <div class="mb-3 mt-3">
+                    <button type="submit" class="btn btn-primary w-100">Create Story</button>
+                </div>
+            </form>
+        </div>
+</div>

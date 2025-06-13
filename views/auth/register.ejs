@@ -1,0 +1,72 @@
+<% layout ('layouts/boilerplate') %>
+
+
+<div class=" mb-5 mt-3">
+    
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action="/register" method="POST" class="validated-form" novalidate enctype="multipart/form-data">
+                        <div class="col-6 offset-3">
+                            <h3 class="text-center">REGISTER</h3>
+                    
+                            <div class="mb-3">
+                                <label class="form-label"  for="username">Username </label>
+                                <input class="form-control" type="text" id="username" name="username" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label class="form-label"  for="email">Email </label>
+                                <input class="form-control" type="email" id="email" name="email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label class="form-label"  for="role">Role </label>
+                                <select class="form-select" aria-label="role" id="role" name="role">
+                                    <option selected>Select Role</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Author</option>
+                                    <option value="3">Reader</option>
+                                </select>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Avatar: </label>
+                                <input class="form-control" type="file" id="image" name="image">
+                                
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label class="form-label"  for="password">Password </label>
+                                <input class="form-control" type="password" id="password" name="password" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                    
+                            
+                            <button class="btn btn-success w-100 mt-2 mb-5">Register</button>
+                    
+                        </div>
+                    
+                    </form>
+                
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
