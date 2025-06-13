@@ -1,4 +1,5 @@
 import Story from "../models/story.js";
+import User from "../models/user.js"
 import aiResponse from "../ai/response.js";
 import formatCompletion from "../public/formatCompletion.js";
 import formatTitle from "../public/formatTitle.js";
@@ -28,7 +29,6 @@ export const saveStory = async(req, res) => {
         imageUrl: story.image,
         description: story.description,
         tone: story.tone,
-        visibility: story.visibility
     };
 
     const generatedResponse = await aiResponse(userData)
@@ -56,12 +56,30 @@ export const viewStory = async (req, res) => {
 
     if(story.visibility === 'private' && (!req.user || !story.user.equals(req.user._id))) {
         req.flash('error', 'You do not have permission to view this private story.');
-        return res.redirect('/')
+        return res.redirect('/stories')
     }
 
     res.render('stories/story', {story})
 
 }
 
+export const userProfile = async(req, res) => {
+    const user = await User.findById(req.params.id);
+
+    const isProfileOwner = req.user && req.user._id.equals(user._id);
+
+    let stories;
+
+    if(isProfileOwner) {
+        //Show all stories: public + private
+        stories = await Story.find({ user: user._id}).populate('user')
+
+    } else {
+        //Show only public stories
+        stories = await Story.find({user: user._id, visibility: 'public'}).populate('user')
+    }
+
+    res.render('user/profile', {user, stories, isProfileOwner})
+}
 
 export default {newStory, saveStory, viewStory, allStories}
