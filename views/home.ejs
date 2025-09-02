@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Stories</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+
+</head>
+
+<body>
+
+    <header class="py-3 bg-hero">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <!-- Logo or Brand -->
+            <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none fs-4 fw-bold">
+            Stories AI
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#hero" class="nav-link px-3 text-dark">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/stories" class="nav-link px-3 text-dark">Stories</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link px-3 text-dark">About</a>
+                </li>
+                <li>
+                <% if(!currentUser) { %>
+                  <a class="nav-link" href="/login">Login</a>
+                  <li><a class="nav-link" href="/register">Register</a></li>
+                <% } else { %>
+
+                  <a href="/logout" class="nav-link">Logout <%= currentUser.username %></a>
+
+                <% } %>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="/login" class="nav-link px-3 text-dark">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/register" class="nav-link px-3 text-dark">Register</a>
+                </li> -->
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+  <section class="py-5 bg-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Text Column -->
+        <div class="col-md-6">
+          <h1 class="display-4 fw-bold">Stories AI</h1>
+          <p class="lead">Turn your memories or images into beautiful, timeless stories powered by AI.</p>
+          <p class="users">30,000+ memorable stories created</p>
+          <p><a href="/stories/new" class="btn btn-primary btn-lg mt-3">Get Started</a></p>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-6 text-center">
+          <img src="https://media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?s=612x612&w=0&k=20&c=l15OdMWjgCKycMMShP8UK94ELVlEGvt7GmB_esHWPYE=" alt="Hero image" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Features</h2>
+        <p class="text-muted">What makes Stories AI amazing</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 p-3">
+            <div class="d-flex align-items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-up feature-icon text-highlight" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708z"/>
+                                <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                            </svg>
+              <!-- <img src="https://via.placeholder.com/40" class="feature-icon" alt="Icon"> -->
+              <div>
+                <h5 class="card-title ">Upload an Image</h5>
+                <p class="card-text">Upload a personal photo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Feature 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 p-3">
+            <div class="d-flex align-items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text feature-icon text-highlight" viewBox="0 0 16 16">
+                                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                                    <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5"/>
+                                </svg>
+              <!-- <img src="https://via.placeholder.com/40" class="feature-icon" alt="Icon"> -->
+              <div>
+                <h5 class="card-title">AI Crafts Your Story</h5>
+                <p class="card-text ">Let AI create a captivating story.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Feature 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 p-3">
+            <div class="d-flex align-items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-robot feature-icon text-highlight" viewBox="0 0 16 16">
+                                    <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135"/>
+                                    <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
+                                </svg>
+              <!-- <img src="https://via.placeholder.com/40" class="feature-icon" alt="Icon"> -->
+              <div>
+                <h5 class="card-title">Relive and Share</h5>
+                <p class="card-text">Cherish, Download, and Share your memories </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">What People Are Saying</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <blockquote class="blockquote">
+            <p>"This app made my late grandpa's memories come alive. Thank you Stories AI!"</p>
+            <footer class="blockquote-footer">Karen, USA</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4">
+          <blockquote class="blockquote">
+            <p>"The storytelling quality is so human, I forgot it was AI-generated."</p>
+            <footer class="blockquote-footer">James, UK</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4">
+          <blockquote class="blockquote">
+            <p>"Perfect for capturing the essence of family photos."</p>
+            <footer class="blockquote-footer">Ian, Australia</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Stories Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Sample AI-Generated Stories</h2>
+        <p class="text-muted">See what Stories AI can create</p>
+      </div>
+      <div class="row g-4">
+        <!-- Story 1 -->
+        <div class="col-md-6">
+          <a href="/stories/68497dac497cbf0bb0a7444a" target="_blank" class="text-decoration-none text-reset">
+
+            <div class="card h-100">
+              <img src="https://res.cloudinary.com/dsaz0wzql/image/upload/v1749646762/Stories/1749646743239-pexels-te-lensfix-380994-1371360.jpg.jpg" class="card-img-top" alt="Story Image">
+              <div class="card-body">
+                <h5 class="card-title text-highlight">Emerald Dawn</h5>
+                <p class="card-text">The water was an impossible turquoise, reflecting the towering limestone cliffs like a shattered mirror. Maya stretched out her arms, feeling the warmth of the Thai sun on her skin...</p>
+            </div>
+          </a>
+        </div>
+      </div>
+        <!-- Story 2 -->
+        <div class="col-md-6">
+          <a href="/stories/68b1c541ed8e3fd4501bcd15" target="_blank" class="text-decoration-none text-reset">
+
+            <div class="card h-100">
+              <img src="https://res.cloudinary.com/dsaz0wzql/image/upload/v1756480833/Stories/1756480831483-couple.jpg.jpg" class="card-img-top" alt="Story Image">
+              <div class="card-body">
+                <h5 class="card-title text-highlight">Golden Hour Wishes</h5>
+                <p class="card-text">The salt spray kissed Mia’s face, and she threw her head back, laughing. Kevin, holding the phone at arm’s length, captured the moment...</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-light bg-footer">
+    <div class="container text-center">
+      <p class="mb-1">&copy; 2025 Stories AI. All rights reserved.</p>
+      <p>
+        <a href="#" class="text-light text-decoration-none mx-2">Contact</a> |
+        <a href="#" class="text-light text-decoration-none mx-2">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

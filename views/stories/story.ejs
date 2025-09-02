@@ -1,5 +1,36 @@
 <% layout('layouts/boilerplate') %>
 
+<div class="container py-5">
+
+  <!-- Page Title -->
+  <h1 class="text-center mb-5 fw-bold">Your Story</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+
+      <!-- Story Image -->
+      <div class="mb-4 text-center">
+        <img src="<%= story.image.url %>" alt="Story Image" class="img-fluid rounded shadow" />
+      </div>
+
+      <!-- Story Text -->
+      <div class="story-text bg-light p-4 rounded shadow-sm">
+        <p class="mb-0 fs-5"><%- story.userStory %></p>
+      </div>
+
+      <!-- Optional: Back Link -->
+      <div class="text-center mt-4">
+        <a href="/stories" class="btn btn-outline-primary">← Back to Stories</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- <% layout('layouts/boilerplate') %>
+
 <h1 class="text-center mb-3">Your Story</h1>
 
 <div class="row">
@@ -15,4 +46,4 @@
         </div>
     
     </div>
-</div>
+</div> -->
