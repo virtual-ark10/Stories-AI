@@ -1,5 +1,4 @@
 import Story from "../models/story.js";
-import User from "../models/user.js"
 import aiResponse from "../ai/response.js";
 import formatCompletion from "../public/formatCompletion.js";
 import formatTitle from "../public/formatTitle.js";
@@ -63,23 +62,6 @@ export const viewStory = async (req, res) => {
 
 }
 
-export const userProfile = async(req, res) => {
-    const user = await User.findById(req.params.id);
-
-    const isProfileOwner = req.user && req.user._id.equals(user._id);
-
-    let stories;
-
-    if(isProfileOwner) {
-        //Show all stories: public + private
-        stories = await Story.find({ user: user._id}).populate('user')
-
-    } else {
-        //Show only public stories
-        stories = await Story.find({user: user._id, visibility: 'public'}).populate('user')
-    }
-
-    res.render('user/profile', {user, stories, isProfileOwner})
-}
+ 
 
 export default {newStory, saveStory, viewStory, allStories}

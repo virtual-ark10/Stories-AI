@@ -25,7 +25,7 @@ const aiResponse = async (userData) => {
         console.log(userData.imageUrl.url)
 
         const completion = await openai.chat.completions.create({
-        model: "google/gemma-3-4b-it:free",
+        model: "google/gemma-3-27b-it:free",
         messages: [
           {
             role: "user",

@@ -16,6 +16,7 @@ import { dirname, join } from "path";
 import auth from "./routes/auth.js"
 import { setCurrentUser, dateConverter } from "./middleware.js";
 import stories from "./routes/stories.js";
+import users from "./routes/users.js"
 
 const dbUrl = process.env.DB_URL;
 
@@ -74,11 +75,12 @@ app.use(express.urlencoded({extended: true})) //Parse form data
 app.use(express.json()) //parse json data
 
 app.get("/", (req, res) => {
-    res.send("Home")
+    res.render("home")
 })
 
 app.use('/', auth)
 app.use('/stories', stories)
+app.use('/users', users)
 
 app.listen(1001, () => {
     console.log("Listening on port 1001...")
