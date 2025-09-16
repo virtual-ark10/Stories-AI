@@ -43,7 +43,7 @@ const sessionConfig = {
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI, // Your MongoDB connection string
+    mongoUrl: dbUrl, // Your MongoDB connection string
     collectionName: 'sessions',
   }),
     cookie: {
