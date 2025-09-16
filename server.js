@@ -19,6 +19,7 @@ import stories from "./routes/stories.js";
 import users from "./routes/users.js";
 import path from "path";
 import favicon from "serve-favicon"
+import MongoStore from "connect-mongo";
 
 const dbUrl = process.env.MONGODB_URI;
 
@@ -41,6 +42,10 @@ const sessionConfig = {
     secret: 'secret',
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI, // Your MongoDB connection string
+    collectionName: 'sessions',
+  }),
     cookie: {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
