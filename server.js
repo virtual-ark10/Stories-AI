@@ -16,15 +16,17 @@ import { dirname, join } from "path";
 import auth from "./routes/auth.js"
 import { setCurrentUser, dateConverter } from "./middleware.js";
 import stories from "./routes/stories.js";
-import users from "./routes/users.js"
+import users from "./routes/users.js";
+import path from "path";
+import favicon from "serve-favicon"
 
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.MONGODB_URI;
 
 const app = express();
 
 //"mongodb://localhost:27017/blog"
 
-mongoose.connect("mongodb://localhost:27017/blog")
+mongoose.connect(dbUrl)
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -69,6 +71,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(express.static(join(__dirname, 'views')))
 app.use(express.static(join(__dirname, 'public')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
 app.use(express.urlencoded({extended: true})) //Parse form data
