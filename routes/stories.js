@@ -10,7 +10,7 @@ const upload = multer({storage, fileFilter})
 const router = express.Router();
 
 router.route("/")
-    .get(isLoggedIn, catchAsync(stories.allStories))
+    .get(catchAsync(stories.allStories))
     .post(isLoggedIn, upload.single('image'), catchAsync(stories.saveStory))
 
 router.route("/new")
